@@ -1,10 +1,25 @@
 "use strict";
 // class ( to craete objects with the same format )
+// class Invoice {
+//     client: string;
+//     details: string;
+//     amount: number;
+//     constructor ( c: string, d: string, a: number) {
+//         this.client = c,
+//         this.details = d,
+//         this.amount = a
+//     }
+//     format(){
+//         return `${this.client} owes £${this.amount} for ${this.details}`
+//     }
+// }
+// if adding modifier before properties, you can make a class this way. 
+// modifier 있을때만 가능! 
 var Invoice = /** @class */ (function () {
-    function Invoice(c, d, a) {
-        this.client = c,
-            this.details = d,
-            this.amount = a;
+    function Invoice(client, details, amount) {
+        this.client = client;
+        this.details = details;
+        this.amount = amount;
     }
     Invoice.prototype.format = function () {
         return this.client + " owes \u00A3" + this.amount + " for " + this.details;
