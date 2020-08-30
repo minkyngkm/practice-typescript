@@ -1,6 +1,7 @@
 import { Invoice } from './classes/Invoice.js'
 import { Payment } from './classes/Payment.js'
 import { HasFormatter } from './interfaces/HasFormatter.js'
+import { ListTemplate } from './classes/ListTemplate.js'
 
 // // make variables that has the structure of interface HasFormatter 
 // // 일단은 variable 의 type 만 정해주는 것.
@@ -53,6 +54,12 @@ const details = document.querySelector("#details") as HTMLInputElement
 
 const amount = document.querySelector("#amount") as HTMLInputElement
 
+// List template instance 
+const ul = document.querySelector("ul")!
+// ul 을 ListTemplat Class 에 pass 시켜야함! 
+
+const list = new ListTemplate(ul)
+
 // add event to the form 
 
 form.addEventListener("submit", (e:Event) => {
@@ -72,5 +79,6 @@ form.addEventListener("submit", (e:Event) => {
     } else {
         doc = new Payment (toForm.value, details.value, amount.valueAsNumber)
     }
-    console.log( doc )
+    // console.log( doc )
+    list.render(doc, type.value, "end")
 })
